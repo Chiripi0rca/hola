@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ir al café conmigo?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+        #yesButton {
+            background-color: #4CAF50;
+        }
+        #noButton {
+            background-color: #f44336;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Quieres ir al café conmigo?</h1>
+        <button id="yesButton" class="button" onclick="sayYes()">Sí</button>
+        <button id="noButton" class="button" onclick="moveNo()">No</button>
+    </div>
+
+    <script>
+        const noButton = document.getElementById("noButton");
+
+        function sayYes() {
+            // Cambia el texto al aceptar
+            document.querySelector('.container').innerHTML = "<h1>Dime fecha y hora por WhatsApp 😊</h1>";
+        }
+
+        function moveNo() {
+            // Genera una posición aleatoria dentro de la pantalla para el botón "No"
+            const randomX = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight));
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        }
+    </script>
+</body>
+</html>
